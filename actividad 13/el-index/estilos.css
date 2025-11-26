@@ -1,3 +1,4 @@
+/* ===== CONTENEDOR PRINCIPAL ===== */
 .container {
     background-color: rgba(61, 133, 240, 0.432);
     padding: 20px;
@@ -9,34 +10,40 @@
     margin: 5% auto;
 }
 
-body{
+/* ===== FONDO ===== */
+body {
     background-image: url(./../Clash-Royale-Video-Game-Art-ArtStation-volcano-ship-2242614-wallhere.com.jpg);
-    background-size: 220vh 100vh;
+    background-size: cover;
+    background-position: center;
     background-repeat: no-repeat;
 }
 
-.btn{
+/* ===== BOTONES ===== */
+.btn {
     border-radius: 10px;
     width: 30%;
+    min-width: 140px;
     background-color: rgb(3, 124, 3);
     color: white;
     border: none;
     padding: 10px 15px;
     border-radius: .5rem;
-    margin-left: 10px;
+    margin: 10px 5px;
     cursor: pointer;
 }
 
-.btn:hover{
+.btn:hover {
     background-color: rgb(97, 240, 97);
 }
 
-.img{
+/* ===== IMAGEN ===== */
+.img {
     padding: 10px;
     border-radius: 20px;
+    max-width: 90%;
 }
 
-/* 🔥 CUADRO FIJO A LA IZQUIERDA */
+/* ===== CUADRO DE RANKING FIJO ===== */
 .ranking-general {
     position: fixed;
     top: 20px;
@@ -59,7 +66,7 @@ body{
     text-align: center;
 }
 
-/* Lista scrollable */
+/* Lista */
 #lista-ranking-general {
     list-style: none;
     padding-left: 5px;
@@ -73,6 +80,7 @@ body{
     border-radius: 5px;
     font-size: 0.9rem;
 }
+
 #btn-borrar-ranking {
     background: red;
     color: white;
@@ -86,4 +94,53 @@ body{
 
 #btn-borrar-ranking:hover {
     background: darkred;
+}
+
+/* =======================================================
+   📱 RESPONSIVE DESIGN
+   ======================================================= */
+
+/* Celulares pequeños */
+@media (max-width: 480px) {
+
+    body {
+        background-size: cover;
+    }
+
+    .container {
+        width: 95%;
+        padding: 15px;
+    }
+
+    .btn {
+        width: 100%;
+        margin: 8px 0;
+    }
+
+    .ranking-general {
+        position: static; /* baja el cuadro */
+        width: 100%;
+        max-height: none;
+        margin-bottom: 15px;
+    }
+}
+
+/* Tablets */
+@media (max-width: 768px) {
+
+    .btn {
+        width: 45%;
+    }
+
+    .ranking-general {
+        left: 10px;
+        width: 200px;
+    }
+}
+
+/* Pantallas grandes */
+@media (min-width: 1200px) {
+    body {
+        background-size: 120% auto;
+    }
 }
