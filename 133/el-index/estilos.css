@@ -1,61 +1,138 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cuestionario</title>
 
-    <!-- BOOTSTRAP -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+/* === Responsive base helpers (added automatically) === */
+*, *::before, *::after { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; font-family: inherit; -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale; }
+img, picture, video, iframe { max-width: 100%; height: auto; display: block; }
+a { word-break: break-word; }
 
-    <link rel="stylesheet" href="estilos.css">
-    <link rel="shortcut icon" href="../Site-favicon.ico">
-</head>
-<body>
+/* Container helper */
+.container { width: 100%; max-width: 1200px; margin-left: auto; margin-right: auto; padding-left: 1rem; padding-right: 1rem; }
 
-<div class="container py-4">
+/* Basic flexible row */
+.row { display: flex; flex-wrap: wrap; gap: 1rem; align-items: stretch; }
+.row > * { flex: 1 1 0; min-width: 0; }
 
-    <div class="row">
+/* Utility classes */
+.center { text-align: center; }
+.hide-mobile { display: initial; }
+.show-mobile { display: none; }
 
-        <!-- RANKING (lado izquierdo en PC / arriba en celular) -->
-        <div class="col-12 col-md-3 mb-4">
-            <div class="p-3 bg-dark text-white rounded shadow">
-                <h2 class="h5">Ranking General</h2>
-                <ul id="lista-ranking-general" class="list-unstyled"></ul>
-                <button id="btn-borrar-ranking" class="btn btn-danger w-100 mt-2">Borrar Ranking</button>
-            </div>
-        </div>
+/* Make forms and buttons fluid */
+input, textarea, select, button { max-width: 100%; box-sizing: border-box; }
 
-        <!-- CONTENIDO PRINCIPAL -->
-        <div class="col-12 col-md-9 text-center">
 
-            <h1 class="mb-3">¡Bienvenido al Cuestionario de Clash Royale!</h1>
-            <p class="lead">En este cuestionario encontrarás 10 preguntas para poner a prueba tus conocimientos.</p>
+.container {
+    background-color: rgba(61, 133, 240, 0.432);
+    padding: 20px;
+    border-radius: 1rem;
+    width: 90%;
+    max-width: 700px;
+    color: white;
+    text-align: center;
+    margin: 5% auto;
+}
 
-            <img src="./../images (1).jpg" class="img-fluid rounded mb-4" alt="">
+body{
+    background-image: url(./../Clash-Royale-Video-Game-Art-ArtStation-volcano-ship-2242614-wallhere.com.jpg);
+    background-size: 220vh 100vh;
+    background-repeat: no-repeat;
+}
 
-            <div class="d-grid gap-3">
-                <a href="./../el-cuesti/cuestionario.html" class="btn btn-primary btn-lg">
-                    Comenzar cuestionario <br> Fácil
-                </a>
+.btn{
+    border-radius: 10px;
+    width: 30%;
+    background-color: rgb(3, 124, 3);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: .5rem;
+    margin-left: 10px;
+    cursor: pointer;
+}
 
-                <a href="./../el-cuesti/cuestionario2.html" class="btn btn-warning btn-lg">
-                    Comenzar cuestionario Normal
-                </a>
+.btn:hover{
+    background-color: rgb(97, 240, 97);
+}
 
-                <a href="./../el-cuesti/cuestionario3.html" class="btn btn-danger btn-lg">
-                    Comenzar cuestionario <br> Difícil
-                </a>
-            </div>
+.img{
+    padding: 10px;
+    border-radius: 20px;
+}
 
-        </div>
-    </div>
-</div>
+/* 🔥 CUADRO FIJO A LA IZQUIERDA */
+.ranking-general {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    width: 250px;
+    max-height: 400px;
+    overflow-y: auto;
+    padding: 15px;
+    background: rgba(0, 0, 0, 0.75);
+    border-radius: 12px;
+    box-shadow: 0 0 10px black;
+}
 
-<script src="./../main.js"></script>
+/* Título */
+.ranking-general h2 {
+    color: gold;
+    text-shadow: 0 0 8px black;
+    font-family: cursive;
+    margin-top: 0;
+    text-align: center;
+}
 
-<!-- BOOTSTRAP JS -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+/* Lista scrollable */
+#lista-ranking-general {
+    list-style: none;
+    padding-left: 5px;
+    margin: 0;
+}
 
-</body>
-</html>
+#lista-ranking-general li {
+    background: rgba(255, 255, 255, 0.15);
+    padding: 7px;
+    margin-bottom: 6px;
+    border-radius: 5px;
+    font-size: 0.9rem;
+}
+#btn-borrar-ranking {
+    background: red;
+    color: white;
+    border: none;
+    padding: 10px;
+    margin-top: 10px;
+    cursor: pointer;
+    border-radius: 6px;
+    font-size: 14px;
+}
+
+#btn-borrar-ranking:hover {
+    background: darkred;
+}
+
+
+/* === Responsive media queries === */
+@media (max-width: 1024px) {
+  .container { padding-left: 0.9rem; padding-right: 0.9rem; }
+  .hide-tablet { display: none !important; }
+  .show-tablet { display: block !important; }
+}
+
+@media (max-width: 768px) {
+  body { font-size: 16px; }
+  .row { flex-direction: column; gap: 0.75rem; }
+  .hide-mobile { display: none !important; }
+  .show-mobile { display: block !important; }
+  header, nav, footer { width: 100%; }
+  h1 { font-size: calc(1.3rem + 1vw); }
+  h2 { font-size: calc(1.1rem + 1vw); }
+  .container { padding-left: 0.75rem; padding-right: 0.75rem; }
+  .small-note { font-size: 0.9rem; }
+}
+
+@media (max-width: 420px) {
+  body { font-size: 15px; }
+  .container { padding-left: 0.5rem; padding-right: 0.5rem; }
+  .tight { padding-left: 0.35rem; padding-right: 0.35rem; }
+}
