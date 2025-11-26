@@ -1,65 +1,43 @@
-
-/* === Responsive base helpers (added automatically) === */
-*, *::before, *::after { box-sizing: border-box; }
-html, body { margin: 0; padding: 0; font-family: inherit; -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale; }
-img, picture, video, iframe { max-width: 100%; height: auto; display: block; }
-a { word-break: break-word; }
-
-/* Container helper */
-.container { width: 100%; max-width: 1200px; margin-left: auto; margin-right: auto; padding-left: 1rem; padding-right: 1rem; }
-
-/* Basic flexible row */
-.row { display: flex; flex-wrap: wrap; gap: 1rem; align-items: stretch; }
-.row > * { flex: 1 1 0; min-width: 0; }
-
-/* Utility classes */
-.center { text-align: center; }
-.hide-mobile { display: initial; }
-.show-mobile { display: none; }
-
-/* Make forms and buttons fluid */
-input, textarea, select, button { max-width: 100%; box-sizing: border-box; }
-
-
-.container {
-    background-color: rgba(61, 133, 240, 0.432);
-    padding: 20px;
-    border-radius: 1rem;
-    width: 90%;
-    max-width: 700px;
-    color: white;
-    text-align: center;
-    margin: 5% auto;
-}
-
-body{
+/* === FONDO GENERAL === */
+body {
     background-image: url(./../Clash-Royale-Video-Game-Art-ArtStation-volcano-ship-2242614-wallhere.com.jpg);
-    background-size: 220vh 100vh;
+    background-size: cover;
+    background-position: center;
     background-repeat: no-repeat;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
 }
 
-.btn{
-    border-radius: 10px;
+/* === CONTENEDOR PRINCIPAL === */
+.containerVentanaActual {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+}
+
+/* === BOTONES === */
+.btn {
     width: 30%;
-    background-color: rgb(3, 124, 3);
-    color: white;
-    border: none;
-    padding: 10px 15px;
-    border-radius: .5rem;
-    margin-left: 10px;
-    cursor: pointer;
-}
-
-.btn:hover{
-    background-color: rgb(97, 240, 97);
-}
-
-.img{
+    outline: 3px solid black;
     padding: 10px;
-    border-radius: 20px;
+    border-radius: 5px;
+    border: none;
+    background-color: #3498db;
+    cursor: pointer;
+    font-size: 1rem;
+    margin: 10px;
 }
 
-/* 🔥 CUADRO FIJO A LA IZQUIERDA */
+.btn:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+    transition: 0.3s;
+}
+
+/* === RANKING GENERAL (PC) === */
 .ranking-general {
     position: fixed;
     top: 20px;
@@ -71,68 +49,53 @@ body{
     background: rgba(0, 0, 0, 0.75);
     border-radius: 12px;
     box-shadow: 0 0 10px black;
-}
-
-/* Título */
-.ranking-general h2 {
-    color: gold;
-    text-shadow: 0 0 8px black;
-    font-family: cursive;
-    margin-top: 0;
-    text-align: center;
-}
-
-/* Lista scrollable */
-#lista-ranking-general {
-    list-style: none;
-    padding-left: 5px;
-    margin: 0;
-}
-
-#lista-ranking-general li {
-    background: rgba(255, 255, 255, 0.15);
-    padding: 7px;
-    margin-bottom: 6px;
-    border-radius: 5px;
-    font-size: 0.9rem;
-}
-#btn-borrar-ranking {
-    background: red;
     color: white;
-    border: none;
-    padding: 10px;
-    margin-top: 10px;
-    cursor: pointer;
+    z-index: 999;
+}
+
+/* === LISTA RANKING === */
+.ranking-general ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.ranking-general li {
+    margin-bottom: 8px;
+    padding: 5px;
+    background: rgba(255, 255, 255, 0.1);
     border-radius: 6px;
-    font-size: 14px;
 }
 
-#btn-borrar-ranking:hover {
-    background: darkred;
-}
-
-
-/* === Responsive media queries === */
-@media (max-width: 1024px) {
-  .container { padding-left: 0.9rem; padding-right: 0.9rem; }
-  .hide-tablet { display: none !important; }
-  .show-tablet { display: block !important; }
-}
-
+/* === RESPONSIVE CELULAR === */
 @media (max-width: 768px) {
-  body { font-size: 16px; }
-  .row { flex-direction: column; gap: 0.75rem; }
-  .hide-mobile { display: none !important; }
-  .show-mobile { display: block !important; }
-  header, nav, footer { width: 100%; }
-  h1 { font-size: calc(1.3rem + 1vw); }
-  h2 { font-size: calc(1.1rem + 1vw); }
-  .container { padding-left: 0.75rem; padding-right: 0.75rem; }
-  .small-note { font-size: 0.9rem; }
-}
 
-@media (max-width: 420px) {
-  body { font-size: 15px; }
-  .container { padding-left: 0.5rem; padding-right: 0.5rem; }
-  .tight { padding-left: 0.35rem; padding-right: 0.35rem; }
+    /* fondo */
+    body {
+        background-size: cover !important;
+        background-position: center !important;
+    }
+
+    /* ranking deja de ser fijo */
+    .ranking-general {
+        position: static;
+        width: 100%;
+        max-height: none;
+        margin-bottom: 20px;
+    }
+
+    /* botones más grandes */
+    .btn {
+        width: 100%;
+        margin: 10px 0;
+        font-size: 1.2rem;
+        padding: 15px;
+    }
+
+    /* contenedor ajustado */
+    .containerVentanaActual {
+        flex-direction: column;
+        padding: 20px;
+        height: auto;
+    }
 }
