@@ -34,7 +34,7 @@ input, textarea, select, button { max-width: 100%; box-sizing: border-box; }
 
 .btn{
     border-radius: 10px;
-    width: 30%;
+    width: auto;
     background-color: rgb(3, 124, 3);
     color: white;
     border: none;
