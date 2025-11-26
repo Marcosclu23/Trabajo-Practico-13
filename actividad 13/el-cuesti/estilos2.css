@@ -1,0 +1,34 @@
+.cuestionario-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+body {
+    background-image: url(../wp1816049-clash-royale-wallpapers-4370.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center center;
+}
+.cuestionario-box {
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 30px;
+    border-radius: 1rem;
+    width: 90%;
+    max-width: 700px;
+    color: white;
+}
+p{
+    font-weight: bold;
+    color: #ECDFCC;
+    text-shadow: 0 5px 10px rgb(138, 136, 134);
+}
+h1{
+    color: #F9F5F0;
+    font-family:cursive;
+    box-shadow: 0 5px 5px black;
+    border-radius: 10px;
+    padding: 10px;
+    text-align: center;
+}
